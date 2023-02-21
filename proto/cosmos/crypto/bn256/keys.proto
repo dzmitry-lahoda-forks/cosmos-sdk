@@ -1,0 +1,16 @@
+syntax = "proto3";
+package cosmos.crypto.bn256;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/cosmos/cosmos-sdk/crypto/keys/bn256";
+
+message PubKey {
+  option (gogoproto.goproto_stringer) = false;
+
+  bytes key = 1 [(gogoproto.casttype) = "github.com/tendermint/tendermint/crypto/bn256.PubKey"];
+}
+
+message PrivKey {
+  bytes key = 1 [(gogoproto.casttype) = "github.com/tendermint/tendermint/crypto/bn256.PrivKey"];
+}
